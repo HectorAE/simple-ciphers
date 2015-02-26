@@ -23,12 +23,14 @@ import Data.Maybe (fromJust)
 -- Generic form to make life easier for us by not having to write everything
 -- twice for encrypt/decrypt.
 vigenereBy :: (Int -> String -> String) -> String -> String -> String
-vigenereBy cipher key text = concatMap round sections
+vigenereBy cipher key text
+  | null key = caesarStandardize text
+  | otherwise = concatMap cipherSection sections
   where
-    sections = chunksOf (length key) (caesarStandardize text)
+    sections = chunksOf (length caesarKeys) (caesarStandardize text)
     alphaIndex c = fromJust $ elemIndex c standardAlphabet
     caesarKeys = map alphaIndex $ caesarStandardize key
-    round sec = concat $ zipWith cipher caesarKeys $ map (: []) sec
+    cipherSection sec = concat $ zipWith cipher caesarKeys $ map (: []) sec
 
 vigenereEncrypt :: String -> String -> String
 vigenereEncrypt = vigenereBy caesarEncrypt
