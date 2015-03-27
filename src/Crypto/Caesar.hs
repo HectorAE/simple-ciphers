@@ -1,16 +1,23 @@
--- Caesar cipher library
--- Written by Hector Escobedo
+{-|
+Module      : Crypto.Caesar
+Description : Caesar cipher encryption
+Copyright   : (c) Hector A Escobedo IV 2015
+License     : GPL-3
+Maintainer  : ninjahector.escobedo@gmail.com
+Stability   : experimental
+Portability : portable
 
-module Crypto.Caesar
-       (
-         standardAlphabet,
-         caesarStandardize,
-         caesarEncryptChar,
-         caesarEncrypt,
-         caesarDecrypt,
-         rot13
-       )
-       where
+A portable implementation of the classic Caesar alphabetic substitution cipher.
+-}
+
+module Crypto.Caesar (
+  standardAlphabet,
+  caesarStandardize,
+  caesarEncryptChar,
+  caesarEncrypt,
+  caesarDecrypt,
+  rot13
+  ) where
 
 import Data.Char (isAlpha, isUpper, toUpper)
 import Data.List (elemIndex)

@@ -1,19 +1,25 @@
--- Vigenère cipher library
--- Written by Hector Escobedo
+{-|
+Module      : Crypto.Vigenere
+Description : Vigenère cipher
+Copyright   : (c) Hector A Escobedo IV 2015
+License     : GPL-3
+Maintainer  : ninjahector.escobedo@gmail.com
+Stability   : experimental
+Portability : portable
 
-module Crypto.Vigenere
-       (
-         vigenereEncrypt,
-         vigenereDecrypt
-       )
-       where
+A portable implementation of the Vigenère cipher.
+-}
 
-import Crypto.Caesar
-  (
-    caesarEncrypt,
-    caesarDecrypt,
-    caesarStandardize,
-    standardAlphabet
+module Crypto.Vigenere (
+  vigenereEncrypt,
+  vigenereDecrypt
+  ) where
+
+import Crypto.Caesar (
+  caesarEncrypt,
+  caesarDecrypt,
+  caesarStandardize,
+  standardAlphabet
   )
 
 import Data.List (elemIndex)

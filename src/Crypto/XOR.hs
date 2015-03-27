@@ -1,15 +1,22 @@
--- XOR encryption library
--- Written by Hector Escobedo
+{-|
+Module      : Crypto.XOR
+Description : Simple XOR cipher
+Copyright   : (c) Hector A Escobedo IV 2015
+License     : GPL-3
+Maintainer  : ninjahector.escobedo@gmail.com
+Stability   : experimental
+Portability : portable
 
-module Crypto.XOR
-       (
-         xorChar,
-         xorString,
-         repeatingXorString,
-         xorEncrypt,
-         xorDecrypt
-       )
-       where
+A portable implementation of the repeating XOR cipher.
+-}
+
+module Crypto.XOR (
+  xorChar,
+  xorString,
+  repeatingXorString,
+  xorEncrypt,
+  xorDecrypt
+  ) where
 
 import Data.Bits (xor)
 import Data.Char (chr, ord)
